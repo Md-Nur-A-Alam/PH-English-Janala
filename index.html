@@ -48,8 +48,8 @@
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost text-xl font-bold">English<img src="./assets/logo.png" alt=""><span
-                            class="bangla"> জানালা</span></a>
+                    <a href="index.html" class="text-xl font-bold flex gap-1 items-center">English<img
+                            src="./assets/logo.png" alt=""><span class="bangla"> জানালা</span></a>
                 </div>
                 <div class="navbar-end hidden sm:flex mr-0 md:mr-8">
                     <ul class="menu menu-horizontal px-1">
@@ -57,7 +57,7 @@
                                 class="fa-solid fa-circle-question"></i>
                             FAQ</a>
                         <a href="#" class="btn btn-primary btn-outline mx-1 text-[10px] md:text-[12px]"><i
-                                class="fa-brands fa-leanpub"></i> Learn</a>
+                                class="fa-solid fa-book-open"></i> Learn</a>
                         <a href="#" class="btn btn-primary btn-outline mx-1 text-[10px] md:text-[12px]"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
                     </ul>
@@ -68,11 +68,12 @@
         <!-- =========== Hero section =========== -->
         <div id="hero">
             <div class="hero bg-base-200 min-h-screen">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <img src="./assets/hero-student.png" class="max-w-lg" />
-                    <div>
-                        <h1 class="text-5xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
-                        <p class="py-6 max-w-[55%]">
+                <div class="hero-content flex-col md:flex-row-reverse">
+                    <img src="./assets/hero-student.png" class="max-w-sm md:max-w-lg" />
+                    <div class="w-[70%] md:w-full">
+                        <h1 class="text-5xl font-bold text-center md:text-left"><span
+                                class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                        <p class="py-6 max-w-full text-center md:text-left">
                             আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান,
                             আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
                         </p>
@@ -86,6 +87,37 @@
             </div>
         </div>
     </header>
+    <main class="w-11/12 mx-auto">
+        <section id="vocabulary" class="text-center">
+            <h1 class="text-4xl font-bold text-center mt-30 mb-5"><span class="text-[#00BCFF]">Let's</span> Learn
+                Vocabularies</h1>
+            <div class="flex justify-between items-center">
+                <button id="prev-btn" class="btn btn-soft btn-primary"><i
+                        class="fa-solid fa-backward"></i> Previous</button>
+                <div id="lesson-container" class="flex justify-center flex-wrap gap-2 my-5">
+                    <!-- all lessons will be placed here -->
+                </div>
+                <button id="next-btn" class="btn btn-soft btn-primary">Next <i
+                        class="fa-solid fa-forward"></i></button>
+            </div>
+            <div id="lesson-content" class="bg-[#F8F8F8] py-10 my-5 shadow-md rounded-lg">
+                <div id="actual-lesson">
+
+                </div>
+                <div id="unselect-lesson" class="[&>*]:mb-4 my-15 ">
+                    <p class="bangla text-neutral/50">আপনি এখনো কোন Lesson Select করেন নি</p>
+                    <h1 class="bangla font-bold text-4xl">একটি Lesson Select করুন।</h1>
+                </div>
+                <div id="not-exist-lesson" class="[&>*]:mb-4 my-15 hidden">
+                    <img src="./assets/alert-error.png" alt="" class="mx-auto">
+                    <p class="bangla text-neutral/50">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                    <h1 class="bangla font-bold text-4xl">নেক্সট Lesson এ যান</h1>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <script src="./script/allLessons.js"></script>
 </body>
 
 </html>
