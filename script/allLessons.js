@@ -6,30 +6,31 @@ const itemsPerPage = 5;
 document.getElementById("next-btn").addEventListener("click", () => {
     if (currentPage * itemsPerPage < fullData.length) {
         currentPage++;
-        displayJson();
+        displayLessons();
     }
 });
 
 document.getElementById("prev-btn").addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
-        displayJson();
+        displayLessons();
     }
 });
 
-const allLessons = link => {
-    fetch(link)
+const allLessons = allLessonsLink => {
+    fetch(allLessonsLink)
         .then(res => res.json())
         .then(json => {
             fullData = json.data;
-            displayJson()
+            currentPage = 1;
+            displayLessons()
         })
-        .catch(err => console.log("error fetching data: ",err));
+        .catch(err => console.log("error fetching data: ", err));
 }
-const displayJson=()=>{
+const displayLessons = () => {
     // 1. get the container
     const lessonContainer = document.getElementById("lesson-container");
-    lessonContainer.innerHTML="";
+    lessonContainer.innerHTML = "";
 
     // Calculate which items to show
     const start = (currentPage - 1) * itemsPerPage;
@@ -40,8 +41,10 @@ const displayJson=()=>{
     paginatedItems.forEach(data => {
         // 3. create a new div
         const lessonDiv = document.createElement('div');
-        lessonDiv.innerHTML=`
-        <button class="btn btn-primary btn-outline"><i class="fa-solid fa-book-open"></i> Lesson-${data.level_no}</button>
+        lessonDiv.innerHTML = `
+        <button class="btn btn-primary btn-outline" data-level="${data.level_no}">
+            <i class="fa-solid fa-book-open"></i> Lesson-${data.level_no}
+        </button>
         `;
         lessonContainer.append(lessonDiv);
     });
@@ -50,17 +53,3 @@ const displayJson=()=>{
     document.getElementById('prev-btn').disabled = currentPage === 1;
     document.getElementById('next-btn').disabled = end >= fullData.length;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-allLessons("https://openapi.programming-hero.com/api/levels/all");

@@ -92,18 +92,29 @@
             <h1 class="text-4xl font-bold text-center mt-30 mb-5"><span class="text-[#00BCFF]">Let's</span> Learn
                 Vocabularies</h1>
             <div class="flex justify-between items-center">
-                <button id="prev-btn" class="btn btn-soft btn-primary"><i
-                        class="fa-solid fa-backward"></i> Previous</button>
+                <button id="prev-btn" class="btn btn-soft btn-primary"><i class="fa-solid fa-backward"></i>
+                    Previous</button>
                 <div id="lesson-container" class="flex justify-center flex-wrap gap-2 my-5">
                     <!-- all lessons will be placed here -->
                 </div>
-                <button id="next-btn" class="btn btn-soft btn-primary">Next <i
-                        class="fa-solid fa-forward"></i></button>
+                <button id="next-btn" class="btn btn-soft btn-primary">Next <i class="fa-solid fa-forward"></i></button>
             </div>
-            <div id="lesson-content" class="bg-[#F8F8F8] py-10 my-5 shadow-md rounded-lg">
-                <div id="actual-lesson">
 
+
+
+            <div id="lesson-content" class="bg-[#F8F8F8] py-10 my-5 shadow-md rounded-lg">
+                <div id="actual-lesson" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-5">
+                    <!-- all lessons wise words will be placed here -->
                 </div>
+                <div id="word-pagination" class="my-5 hidden">
+                    <button id="prev-content-btn" class="btn btn-soft btn-primary"><i class="fa-solid fa-backward"></i>
+                        Previous</button>
+                    <button id="next-content-btn" class="btn btn-soft btn-primary">Next <i
+                            class="fa-solid fa-forward"></i></button>
+                </div>
+
+
+
                 <div id="unselect-lesson" class="[&>*]:mb-4 my-15 ">
                     <p class="bangla text-neutral/50">আপনি এখনো কোন Lesson Select করেন নি</p>
                     <h1 class="bangla font-bold text-4xl">একটি Lesson Select করুন।</h1>
@@ -117,7 +128,11 @@
 
         </section>
     </main>
+
+    <script src="./script/jsonLinks.js"></script>
     <script src="./script/allLessons.js"></script>
+    <script src="./script/wordList.js"></script>
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
