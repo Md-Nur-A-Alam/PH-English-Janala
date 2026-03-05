@@ -12,7 +12,7 @@ const displayWordDetails = data => {
         <h1 class="text-2xl font-bold">${data.word} (<i class="fa-solid fa-microphone-lines"></i>:<span class="bangla">${data.pronunciation}</span>)</h1>
         <div class="space-y-1">
             <p class="font-bold">Meaning</p>
-            <p class="bangla font-semibold">${data.meaning}</p>
+            <p class="bangla font-semibold">${data.meaning?data.meaning: notFound()}</p>
         </div>
         <div class="space-y-1">
             <p class="font-bold">Example</p>
@@ -20,8 +20,9 @@ const displayWordDetails = data => {
         </div>
         <div class="space-y-1">
             <p class="bangla font-bold">সমার্থক শব্দ গুলো</p>
-            ${data.synonyms.map(synonym =>
-                `<p class="btn text-neutral/50 mx-1">${synonym}</p>`
+            ${  (!data.synonyms?.length)? notFound():(
+                data.synonyms.map(synonym =>
+                `<p class="btn text-neutral/50 mx-1">${synonym}</p>`)
             ).join('')}
         </div>
     `;

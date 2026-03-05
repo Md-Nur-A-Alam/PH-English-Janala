@@ -99,11 +99,23 @@
                 </div>
                 <button id="next-btn" class="btn btn-soft btn-primary">Next <i class="fa-solid fa-forward"></i></button>
             </div>
+            <div id="search-word">
+                <div class="join">
+                    <div>
+                        <label class="input validator join-item">
+                            <input id="search-input" type="text" placeholder="Search a word..." required />
+                        </label>
+                    </div>
+                    <button id="search-btn" class="btn btn-primary join-item"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
 
-
+            <div id="loading" class="py-30 hidden"><span
+                    class="loading loading-bars loading-xl w-[5%] text-primary/50"></span></div>
 
             <div id="lesson-content" class="bg-[#F8F8F8] py-10 my-5 shadow-md rounded-lg">
-                <div id="actual-lesson" class="flex md:grid flex-col md:grid-cols-2 lg:grid-cols-4 justify-center gap-5">
+                <div id="actual-lesson"
+                    class="flex md:grid flex-col md:grid-cols-2 lg:grid-cols-4 justify-center gap-5">
                     <!-- all words will be placed here -->
                 </div>
                 <!-- Open the modal using ID.showModal() method -->
