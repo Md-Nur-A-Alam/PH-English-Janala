@@ -27,6 +27,11 @@ document.getElementById("lesson-container").addEventListener("click", (event) =>
         document.getElementById("not-exist-lesson").classList.add("hidden");
         return;
     };
+    const lessonBtn = document.querySelectorAll('#lesson-container button');
+    lessonBtn.forEach(btn => {
+        btn.classList.add('btn-outline');
+    });
+    btn.classList.remove('btn-outline');
     const unselect = document.getElementById("unselect-lesson");
     unselect.classList.add("hidden");
     document.getElementById("word-pagination").classList.remove("hidden");
@@ -65,21 +70,21 @@ const displayWordLesson = () => {
     pagination.forEach(data => {
         const wordDiv = document.createElement('div');
         wordDiv.innerHTML = `
-                        <div class="bg-white rounded-md shadow-md p-6 max-w-sm w-full">
-                            <p class="mb-5 font-bold text-xl">${data.word}</p>
+                        <div class="bg-white rounded-md shadow-md p-6 md:max-w-sm w-full">
+                            <p class="mb-5 font-bold text-xl">${data.word?data.word:"এটি পাওয়া যায়নি"}</p>
                             <p class="mb-5">Meaning/Pronunciation</p>
-                            <p class="mb-5 bangla font-bold">"${data.meaning}/${data.pronunciation}"</p>
+                            <p class="mb-5 bangla font-bold">"${data.meaning?data.meaning:"এটি পাওয়া যায়নি"}/${data.pronunciation?data.pronunciation:"এটি পাওয়া যায়নি"}"</p>
                             <div class="flex justify-between">
-                                <button class="btn btn-neutral btn-soft"><i class="fa-solid fa-circle-info"></i></button>
+                                <button onclick="wordDetails(${data.id})" class="btn btn-neutral btn-soft"><i class="fa-solid fa-circle-info"></i></button>
                                 <button class="btn btn-neutral btn-soft"><i class="fa-solid fa-volume-high"></i></button>
                             </div>
                         </div>
         `;
         wordsContainer.append(wordDiv);
-    })
+        // console.log(data.id);
+    });
 
 
     document.getElementById('prev-content-btn').disabled = currentWordPage === 1;
     document.getElementById('next-content-btn').disabled = ed >= fullWordData.length;
 }
-curr

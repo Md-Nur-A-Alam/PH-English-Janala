@@ -103,9 +103,39 @@
 
 
             <div id="lesson-content" class="bg-[#F8F8F8] py-10 my-5 shadow-md rounded-lg">
-                <div id="actual-lesson" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-5">
-                    <!-- all lessons wise words will be placed here -->
+                <div id="actual-lesson" class="flex md:grid flex-col md:grid-cols-2 lg:grid-cols-4 justify-center gap-5">
+                    <!-- all words will be placed here -->
                 </div>
+                <!-- Open the modal using ID.showModal() method -->
+                <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+                <dialog id="word_detail_modal" class="modal modal-bottom sm:modal-middle">
+                    <div class="modal-box">
+                        <div id="details-container" class="space-y-3 text-left p-4 shadow-sm rounded-md">
+                            <h1 class="text-2xl font-bold">word (:<span class="bangla">pronunciation</span>)</h1>
+                            <div class="space-y-1">
+                                <p class="font-bold">Meaning</p>
+                                <p class="bangla font-semibold">meaning</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="font-bold">Example</p>
+                                <p class="bangla text-neutral/50">sentence</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="bangla font-bold">সমার্থক শব্দ গুলো</p>
+                                <p class="btn text-neutral/50">sentence</p>
+                            </div>
+                        </div>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn btn-primary">Complete Learning</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+
+
                 <div id="word-pagination" class="my-5 hidden">
                     <button id="prev-content-btn" class="btn btn-soft btn-primary"><i class="fa-solid fa-backward"></i>
                         Previous</button>
@@ -133,6 +163,7 @@
     <script src="./script/allLessons.js"></script>
     <script src="./script/wordList.js"></script>
     <script src="./script/index.js"></script>
+    <script src="./script/wordDetail.js"></script>
 </body>
 
 </html>
