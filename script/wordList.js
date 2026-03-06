@@ -82,7 +82,7 @@ const displayWordLesson = (prem=fullWordData) => {
                             <p class="mb-5 bangla font-bold">"${data.meaning?data.meaning:notFound()}/${data.pronunciation?data.pronunciation:notFound()}"</p>
                             <div class="flex justify-between">
                                 <button onclick="wordDetails(${data.id})" class="btn btn-neutral btn-soft"><i class="fa-solid fa-circle-info"></i></button>
-                                <button class="btn btn-neutral btn-soft"><i class="fa-solid fa-volume-high"></i></button>
+                                <button class="btn btn-neutral btn-soft" onClick="pronounceWord('${data.word}')"><i class="fa-solid fa-volume-high"></i></button>
                             </div>
                         </div>
         `;
